@@ -12,7 +12,7 @@ public class AllocationsAppTest {
     public void embedded() {
         App.main(new String[]{});
 
-        String response = new RestTemplate().getForObject("http://localhost:8181/allocations?projectId=0", String.class);
+        String response = new RestTemplate().getForObject("http://localhost:8081/allocations?projectId=0", String.class);
 
         assertThat(response).isEqualTo("[]");
     }
