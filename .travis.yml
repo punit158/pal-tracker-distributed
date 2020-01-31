@@ -10,6 +10,9 @@ stages:
   - migrate
 if: tag IS blank
 
+before_install:
+  - chmod +x gradlew
+
 jobs:
   include:
     - stage: build and publish

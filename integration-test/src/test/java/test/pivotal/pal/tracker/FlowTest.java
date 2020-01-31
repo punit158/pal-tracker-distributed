@@ -20,25 +20,25 @@ public class FlowTest {
     private final HttpClient httpClient = new HttpClient();
     private final String workingDir = System.getProperty("user.dir");
 
-    private ApplicationServer registrationServer = new ApplicationServer(workingDir + "/../applications/registration-server/build/libs/registration-server.jar", "8883");
-    private ApplicationServer allocationsServer = new ApplicationServer(workingDir + "/../applications/allocations-server/build/libs/allocations-server.jar", "8881");
-    private ApplicationServer backlogServer = new ApplicationServer(workingDir + "/../applications/backlog-server/build/libs/backlog-server.jar", "8882");
-    private ApplicationServer timesheetsServer = new ApplicationServer(workingDir + "/../applications/timesheets-server/build/libs/timesheets-server.jar", "8884");
+    private ApplicationServer registrationServer = new ApplicationServer(workingDir + "/../applications/registration-server/build/libs/registration-server.jar", "8083");
+    private ApplicationServer allocationsServer = new ApplicationServer(workingDir + "/../applications/allocations-server/build/libs/allocations-server.jar", "8081");
+    private ApplicationServer backlogServer = new ApplicationServer(workingDir + "/../applications/backlog-server/build/libs/backlog-server.jar", "8082");
+    private ApplicationServer timesheetsServer = new ApplicationServer(workingDir + "/../applications/timesheets-server/build/libs/timesheets-server.jar", "8084");
 
     private String registrationServerUrl(String path) {
-        return "http://localhost:8883" + path;
+        return "http://localhost:8083" + path;
     }
 
     private String allocationsServerUrl(String path) {
-        return "http://localhost:8881" + path;
+        return "http://localhost:8081" + path;
     }
 
     private String backlogServerUrl(String path) {
-        return "http://localhost:8882" + path;
+        return "http://localhost:8082" + path;
     }
 
     private String timesheetsServerUrl(String path) {
-        return "http://localhost:8884" + path;
+        return "http://localhost:8084" + path;
     }
 
     private long findResponseId(Response response) {
@@ -61,7 +61,7 @@ public class FlowTest {
         allocationsServer.startWithDatabaseName("tracker_allocations_test");
         backlogServer.startWithDatabaseName("tracker_backlog_test");
         timesheetsServer.startWithDatabaseName("tracker_timesheets_test");
-        ApplicationServer.waitOnPorts("8881", "8882", "8883", "8884");
+        ApplicationServer.waitOnPorts("8081", "8082", "8083", "8084");
         TestScenarioSupport.clearAllDatabases();
     }
 
